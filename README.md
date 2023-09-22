@@ -22,3 +22,6 @@ Word count: 4
 ============================
 ```
 
+## LICENSE
+
+[MIT](LICENSE)
