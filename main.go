@@ -45,7 +45,7 @@ func main() {
 	content, err := ReadFile(*filePath)
 	if err != nil {
 		fmt.Println("Error while reading file.")
-		fmt.Println("\nSee 'wounder --help'")
+		fmt.Println("\nSee 'wounter --help'")
 		os.Exit(1)
 	}
 
