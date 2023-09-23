@@ -14,6 +14,12 @@ go install github.com/gozeloglu/wounter@latest
 wounter "Example string for counting." 
 ```
 
+As another option, you can pass file path to count words.
+
+```shell
+wounter --path example.txt
+```
+
 Output will be as follows:
 
 ```shell
