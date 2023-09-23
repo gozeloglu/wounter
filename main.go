@@ -13,6 +13,11 @@ func main() {
 
 	s := flag.Args()
 
+	if *versionFlag {
+		fmt.Println(version)
+		return
+	}
+
 	if len(s) != 0 {
 		fmt.Println("\n============================")
 		fmt.Println("Word count:", Counter(s[0]))
