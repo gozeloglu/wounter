@@ -9,9 +9,21 @@ import (
 var filePath = flag.String("path", "", "File path for counting file content")
 
 func main() {
+	// Update flag.Usage
+	flag.Usage = func() {
+		fmt.Fprintf(flag.CommandLine.Output(), usageText, os.Args[0], os.Args[0])
+		flag.PrintDefaults()
+		fmt.Fprintf(flag.CommandLine.Output(), footerText)
+	}
+
 	flag.Parse()
 
 	s := flag.Args()
+
+	if *helpFlag {
+		flag.Usage()
+		return
+	}
 
 	if *versionFlag {
 		fmt.Println(version)
@@ -26,14 +38,14 @@ func main() {
 	}
 
 	if len(*filePath) == 0 {
-		// TODO Show usage
-		fmt.Println("Invalid file path.")
+		flag.Usage()
 		os.Exit(1)
 	}
 
 	content, err := ReadFile(*filePath)
 	if err != nil {
 		fmt.Println("Error while reading file.")
+		fmt.Println("\nSee 'wounter --help'")
 		os.Exit(1)
 	}
 
