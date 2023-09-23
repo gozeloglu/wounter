@@ -41,6 +41,13 @@ func TestCounter(t *testing.T) {
 			s:        "  This is   , . /   example text  - with spaces 124 ",
 			expCount: 11,
 		},
+		{
+			name: "File content with new lines",
+			s: `this is first line
+	this is second line
+		this is third line`,
+			expCount: 12,
+		},
 	}
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
